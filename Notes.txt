@@ -1,0 +1,11 @@
+1) sudo bin/kafka-storage.sh random-uuid
+2) sudo bin/kafka-storage.sh format -t UUID -c config/kraft/server.properties
+3) sudo bin/kafka-server-start.sh config/kraft/server.properties
+
+a) List of Topics :-  bin/kafka-topics.sh --bootstrap-server localhost:9092 --list 
+b) Describe Topic :-  bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic <topicName> --describe 
+c) List of Consumber Groups :- bin/kafka-consumber-groups.sh --bootstrap-server localhost:9092 --list 
+d) Info about consumer group :-  bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group <groupName>
+
+Kafka UI :-
+sudo docker run --rm -d -e KAFKA_CLUSTER_O_NAME=test-cluster -e KAFKA_CLUSTERS_O_BOOTSTRAPSERVERS=localhost:9092 --name kafka-ui --network host provectuslabs/kafka-ui
