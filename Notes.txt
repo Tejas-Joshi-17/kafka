@@ -4,8 +4,10 @@
 
 a) List of Topics :-  bin/kafka-topics.sh --bootstrap-server localhost:9092 --list 
 b) Describe Topic :-  bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic <topicName> --describe 
+b) Delete Topic :-  bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic <topicName>  
 c) List of Consumber Groups :- bin/kafka-consumber-groups.sh --bootstrap-server localhost:9092 --list 
 d) Info about consumer group :-  bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group <groupName>
 
 Kafka UI :-
 sudo docker run --rm -d -e KAFKA_CLUSTER_O_NAME=test-cluster -e KAFKA_CLUSTERS_O_BOOTSTRAPSERVERS=localhost:9092 --name kafka-ui --network host provectuslabs/kafka-ui
+sudo docker run --rm -d -p 8081:8080 -e KAFKA_CLUSTER_O_NAME=my-cluster -e KAFKA_CLUSTERS_O_BOOTSTRAPSERVERS=192.168.1.111:9092 --name kafka-ui provectuslabs/kafka-ui
