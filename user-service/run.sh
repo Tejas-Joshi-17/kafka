@@ -1,3 +1,25 @@
+rm -rf ./logs/*.*
+
+# Kill any running jmeter-testing process
+PID=$(ps -ef | grep "user-service-kafka" | grep -v grep | awk '{print $2}')
+if [[ -n $PID ]]; then
+  kill -9 "$PID"
+  echo "Already Running Process Stopped ..."
+else
+  echo "Ready to Build Project"
+fi
+
+source "/home/tejas-joshi/Documents/Software/Sdkman/bin/sdkman-init.sh"
+sdk use java 17.0.12-oracle
+sdk use gradle 8.10.2
+
 gradle clean build
 
-java -jar -Dspring.application.name="user-service-kafka" ./build/libs/*HOT.jar
+source setenv.sh
+
+# cp -r ./cfg ./build/libs
+# cp -r ./docker-start.sh ./build/libs
+cp -r ./src/main/resources/application.properties ./build/libs
+cp -r ./src/main/resources/logback-spring.xml ./build/libs
+
+java -jar -Dspring.application.name="user-service-kafka" ./build/libs/user-service-1.0.1.jar
