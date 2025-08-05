@@ -14,7 +14,12 @@ sudo docker run --rm -d \
   -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=localhost:9092 \
   --name kafka-ui \
   --network host \
-  provectuslabs/kafka-ui
+  -- provectuslabs/kafka-ui
 
+Home :- 
 sudo docker run --rm -d -p 8081:8080 -e KAFKA_CLUSTERs_0_NAME=my-cluster -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=192.168.1.111:9092 --name kafka-ui provectuslabs/kafka-ui
+
+Office :- 
+sudo docker run --rm -d -p 8081:8080 -e KAFKA_CLUSTERs_0_NAME=my-cluster -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=10.121.163.39:9092 --name kafka-ui provectuslabs/kafka-ui
+
 sudo docker run --rm -d -e KAFKA_CLUSTERS_0_NAME=my-cluster -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=localhost:9092 --name kafka-ui --network host provectuslabs/kafka-ui
