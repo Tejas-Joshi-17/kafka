@@ -24,3 +24,7 @@ sudo docker run --rm -d -p 8081:8080 -e KAFKA_CLUSTERs_0_NAME=my-cluster -e KAFK
 
 sudo docker run --rm -d -e KAFKA_CLUSTERS_0_NAME=my-cluster -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=localhost:9092 --name kafka-ui --network host provectuslabs/kafka-ui
 sudo docker run --rm -d -e DYNAMIC_CONFIG_ENABLED=true --name kafka-ui --network host provectuslabs/kafka-ui
+
+# Start Kafka Background 
+sudo nohup ./bin/kafka-server-start.sh ./config/kraft/server.properties &> /dev/null &
+            
